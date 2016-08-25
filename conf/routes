@@ -1,0 +1,48 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+###
+#{
+#	"responses": {
+#		"200": {
+#			"description": "success",
+#			"schema": {
+#				"$ref": "#/definitions/models.Test"
+#			}
+#		}
+#	}
+#}
+###
+GET     /                           controllers.HomeController.index(firstName: String)
+
+
+###
+#{
+#   "consumes" : ["multipart/form-data"],
+#   "parameters" : [
+#       {
+#       "in" : "formData",
+#       "name":"private_key",
+#       "required":true,
+#		"type":"string"
+#       }
+#   ],
+#	"responses": {
+#		"200": {
+#			"description": "success",
+#			"schema": {
+#				"$ref": "#/definitions/models.Test"
+#			}
+#		}
+#	}
+#}
+###
+POST     /formData                           controllers.HomeController.formData()
+
+
+### NoDocs ###
+GET   /docs/swagger.json          controllers.ApiSpecs.specs
+
+### NoDocs ###
+GET   /docs/swagger-ui/*file        controllers.Assets.versioned(path:String="/public/lib/swagger-ui", file:String)
